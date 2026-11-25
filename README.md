@@ -9,7 +9,7 @@ Detection of *C. elegans* aggregates in fluorescence microscopy images. A small 
 
 
 
-1. **Partition.** 116 source images are split at the image level into 92 training images (not annotated), 12 validation images (manually annotated) and 12 test images (reserved). The 12 validation images are divided into 9 development images and 3 held-out images.
+1. **Partition.** 116 source images are split at the image level into 92 training images (not annotated), 12 validation images (manually annotated). The 12 validation images are divided into 9 development images and 3 held-out images.
 2. **Augmentation of the 92 training images.** Quadrant split (460 images), removal of 91 entirely black quadrants (369), rotation from 10° to 350° in 10° steps (13,284), four intensity versions (53,136) plus 4,098 noisy copies: **57,234 images** in total.
 3. **Subsampling.** Every 11th image of the full pool is used for training: 5000 images.
 4. **Teacher.** YOLO11n trained on 1280 × 1280 tiles of the 9 development images. Three fold models (6 train / 3 validation images each) estimate generalisation; the final teacher uses all 9 images.
@@ -20,7 +20,7 @@ Detection of *C. elegans* aggregates in fluorescence microscopy images. A small 
 
 | Component | Content |
 |---|---|
-| Source images | 116 fluorescence images (92 / 12 / 12) |
+| Source images | 116 fluorescence images  |
 | Manual annotations | 12 validation images, YOLO format |
 | Pseudo-labelled subsample | 5000 images with teacher detections and confidences |
 
@@ -102,7 +102,7 @@ All models are evaluated with the same code. Predictions are matched one-to-one 
 
 mAP50 and mAP50–95 are computed over the full confidence range (conf ≥ 0.001). Precision (P) and recall (R) at IoU 0.30 and 0.50 are at inference confidence c = 0.2. Fold models: mean ± SD over the three folds. All models are evaluated with the same code.
 
-[Add 12 test images result as well]
+
 
 ## Limitations
 
