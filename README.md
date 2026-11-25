@@ -11,7 +11,7 @@ Detection of *C. elegans* aggregates in fluorescence microscopy images. A small 
 
 1. **Partition.** 116 source images are split at the image level into 92 training images (not annotated), 12 validation images (manually annotated) and 12 test images (reserved). The 12 validation images are divided into 9 development images and 3 held-out images.
 2. **Augmentation of the 92 training images.** Quadrant split (460 images), removal of 91 entirely black quadrants (369), rotation from 10° to 350° in 10° steps (13,284), four intensity versions (53,136) plus 4,098 noisy copies: **57,234 images** in total.
-3. **Subsampling.** Every 11th image of the full pool is used for training: [5,203] images.
+3. **Subsampling.** Every 11th image of the full pool is used for training: 5000 images.
 4. **Teacher.** YOLO11n trained on 1280 × 1280 tiles of the 9 development images. Three fold models (6 train / 3 validation images each) estimate generalisation; the final teacher uses all 9 images.
 5. **Pseudo-labels.** The teacher labels the subsample; detections with confidence ≥ τ are kept, with τ = 0.05, 0.2 and 0.4.
 6. **Students.** One student YOLO model is trained per τ, validated on the 9 development images, and evaluated on the 3 held-out images [and the 12 test images].
@@ -22,8 +22,8 @@ Detection of *C. elegans* aggregates in fluorescence microscopy images. A small 
 |---|---|
 | Source images | 116 fluorescence images (92 / 12 / 12) |
 | Manual annotations | 12 validation images [and 12 test images], YOLO format |
-| Pseudo-labelled subsample | [5,203] images with teacher detections and confidences |
-| Full augmented pool | 57,234 images, regenerated with the code in `[scripts/]` |
+| Pseudo-labelled subsample | 5000 images with teacher detections and confidences |
+| Full augmented pool | 57,234 images, regenerated with the code fixed_aug_new.m |
 
 * **Data & Weights Download:** All image datasets and trained model weights are hosted on Google Drive — **[Download Dataset & Weights](https://drive.google.com/drive/folders/1Q7Pih6S44mR0qqXIlisk5TEFDnpykK9J?usp=sharing)**.
 * Annotation format: one `.txt` file per image, each line `class x_centre y_centre width height` (normalised, class 0 = aggregate). Pseudo-label files have a sixth column with the detection confidence; an empty file means no detection.
