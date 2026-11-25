@@ -7,7 +7,7 @@ Detection of *C. elegans* aggregates in fluorescence microscopy images. A small 
 
 ## Pipeline
 
-![Pipeline overview](docs/pipeline.png)
+
 
 1. **Partition.** 116 source images are split at the image level into 92 training images (not annotated), 12 validation images (manually annotated) and 12 test images (reserved). The 12 validation images are divided into 9 development images and 3 held-out images.
 2. **Augmentation of the 92 training images.** Quadrant split (460 images), removal of 91 entirely black quadrants (369), rotation from 10° to 350° in 10° steps (13,284), four intensity versions (53,136) plus 4,098 noisy copies: **57,234 images** in total.
