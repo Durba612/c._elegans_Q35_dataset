@@ -25,7 +25,7 @@ Detection of *C. elegans* aggregates in fluorescence microscopy images. A small 
 | Pseudo-labelled subsample | [5,203] images with teacher detections and confidences |
 | Full augmented pool | 57,234 images, regenerated with the code in `[scripts/]` |
 
-* **Data & Weights Download:** All image datasets and trained model weights are hosted on Google Drive — **[Download Dataset & Weights](YOUR_GOOGLE_DRIVE_LINK)**.
+* **Data & Weights Download:** All image datasets and trained model weights are hosted on Google Drive — **[Download Dataset & Weights](https://drive.google.com/drive/folders/1Q7Pih6S44mR0qqXIlisk5TEFDnpykK9J?usp=sharing)**.
 * Annotation format: one `.txt` file per image, each line `class x_centre y_centre width height` (normalised, class 0 = aggregate). Pseudo-label files have a sixth column with the detection confidence; an empty file means no detection.
 
 ## Repository structure
